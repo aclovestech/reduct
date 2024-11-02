@@ -5,7 +5,7 @@ import SearchForm from "./SearchForm";
 
 export default function Header() {
   return (
-    <header className={styles.header}>
+    <header id="header-container" className={styles.header}>
       <Logo />
       <SearchForm />
     </header>
