@@ -1,0 +1,12 @@
+.searchForm {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.searchBar {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    text-indent: 10px;
+}
