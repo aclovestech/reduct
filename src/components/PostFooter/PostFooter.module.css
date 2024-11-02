@@ -1,0 +1,42 @@
+.postFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+}
+
+.postFooter>span {
+    font-size: xx-small;
+}
+
+.postedBy {
+    flex: 1;
+}
+
+.username {
+    color: #007bff;
+}
+
+.timePosted {
+    text-align: center;
+    width: 75px;
+}
+
+.comments {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.comments>* {
+    font-size: x-small;
+}
+
+.separator {
+    border: none;
+    height: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2)
+}

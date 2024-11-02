@@ -1,0 +1,7 @@
+.card {
+    display: flex;
+    align-items: start;
+    background-color: #1E1E1E;
+    border-radius: 10px;
+    width: 100%;
+}
