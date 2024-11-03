@@ -1,0 +1,11 @@
+.subreddit {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.subreddit>img {
+    max-width: 30px;
+}
