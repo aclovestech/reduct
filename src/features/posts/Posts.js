@@ -6,6 +6,8 @@ export default function Posts() {
   return (
     <div id="posts-container" className={styles.posts}>
       <Card />
+      <Card />
+      <Card />
     </div>
   );
 }
