@@ -7,7 +7,7 @@ export default function Subreddit({ avatar, subredditName }) {
       {avatar ? (
         <img src={avatar} alt="avatar" />
       ) : (
-        <i class="fa-brands fa-square-reddit"></i>
+        <i className="fa-brands fa-reddit-alien"></i>
       )}
 
       <h4>{subredditName}</h4>

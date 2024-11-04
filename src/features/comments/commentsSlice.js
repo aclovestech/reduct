@@ -4,7 +4,7 @@ import { fetchCommentsByPostId } from "../../utils/redditAPI";
 const initialState = {
   comments: [],
   isLoading: false,
-  error: false,
+  error: null,
 };
 
 export const getCommentsByPostId = createAsyncThunk(
