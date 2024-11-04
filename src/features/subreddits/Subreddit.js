@@ -1,14 +1,16 @@
 import React from "react";
 import styles from "./Subreddit.module.css";
 
-export default function Subreddit() {
+export default function Subreddit({ avatar, subredditName }) {
   return (
     <div className={styles.subreddit}>
-      <img
-        src="https://api.dicebear.com/9.x/adventurer/svg?seed=Mason"
-        alt="avatar"
-      />
-      <h4>Subreddit name</h4>
+      {avatar ? (
+        <img src={avatar} alt="avatar" />
+      ) : (
+        <i class="fa-brands fa-square-reddit"></i>
+      )}
+
+      <h4>{subredditName}</h4>
     </div>
   );
 }

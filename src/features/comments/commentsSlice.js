@@ -15,7 +15,7 @@ export const getCommentsByPostId = createAsyncThunk(
   }
 );
 
-const commentsSlice = createSlice({
+export const commentsSlice = createSlice({
   name: "comments",
   initialState,
   reducers: {},
@@ -23,15 +23,15 @@ const commentsSlice = createSlice({
     builder
       .addCase(getCommentsByPostId.pending, (state) => {
         state.isLoading = true;
-        state.error = false;
+        state.error = null;
       })
       .addCase(getCommentsByPostId.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = true;
+        state.error = action.error.message;
       })
       .addCase(getCommentsByPostId.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = false;
+        state.error = null;
       });
   },
 });

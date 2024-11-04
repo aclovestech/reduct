@@ -4,7 +4,7 @@ import { fetchPostsBySubreddit } from "../../utils/redditAPI";
 const initialState = {
   posts: [],
   isLoading: false,
-  error: false,
+  error: null,
 };
 
 export const getPostsBySubreddits = createAsyncThunk(
@@ -15,7 +15,7 @@ export const getPostsBySubreddits = createAsyncThunk(
   }
 );
 
-const postsSlice = createSlice({
+export const postsSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
@@ -29,15 +29,15 @@ const postsSlice = createSlice({
     builder
       .addCase(getPostsBySubreddits.pending, (state) => {
         state.isLoading = true;
-        state.error = false;
+        state.error = null;
       })
       .addCase(getPostsBySubreddits.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = true;
+        state.error = action.error.message;
       })
       .addCase(getPostsBySubreddits.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = false;
+        state.error = null;
       });
   },
 });

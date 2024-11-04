@@ -1,11 +1,19 @@
 .subreddit {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 15px;
     justify-content: flex-start;
     align-items: center;
+    height: 30px;
 }
 
 .subreddit>img {
-    max-width: 30px;
+    width: 30px;
+}
+
+.subreddit>i {
+    width: 30px;
+    text-align: center;
+    font-size: 30px;
+    color: #ff4500;
 }
