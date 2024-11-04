@@ -8,6 +8,10 @@ import {
   selectError,
   selectLastFetched,
 } from "./subredditsSlice";
+import {
+  selectSelectedSubreddit,
+  changeSelectedSubreddit,
+} from "../posts/postsSlice";
 import styles from "./Subreddits.module.css";
 
 export default function Subreddits() {
@@ -15,6 +19,7 @@ export default function Subreddits() {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const lastFetched = useSelector(selectLastFetched);
+  const selectedSubreddit = useSelector(selectSelectedSubreddit);
 
   const dispatch = useDispatch();
 
@@ -29,7 +34,11 @@ export default function Subreddits() {
     ) {
       dispatch(getTopSubreddits());
     }
-  }, [dispatch, subreddits, lastFetched]);
+
+    if (!selectedSubreddit) {
+      dispatch(changeSelectedSubreddit(subreddits[0].data["display_name"]));
+    }
+  }, [dispatch, subreddits]);
 
   return (
     <div className={styles.subreddits}>

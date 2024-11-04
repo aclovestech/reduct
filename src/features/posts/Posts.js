@@ -1,13 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "../../components/Card/Card";
+import {
+  selectPosts,
+  selectIsLoading,
+  selectError,
+  selectSelectedSubreddit,
+  getPostsBySubreddits,
+} from "./postsSlice";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "./Posts.module.css";
 
 export default function Posts() {
+  const posts = useSelector(selectPosts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const selectedSubreddit = useSelector(selectSelectedSubreddit);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (selectedSubreddit) {
+      dispatch(getPostsBySubreddits(selectedSubreddit));
+    }
+  }, [dispatch, selectedSubreddit]);
+
   return (
     <div id="posts-container" className={styles.posts}>
-      <Card />
-      <Card />
-      <Card />
+      {posts.map((post) => {
+        return <Card key={post.data.id} postInfo={post.data} />;
+      })}
     </div>
   );
 }
