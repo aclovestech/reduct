@@ -1,5 +1,6 @@
 import React from "react";
 import PostFooter from "../../components/PostFooter/PostFooter";
+import Comments from "../comments/Comments";
 import styles from "./Post.module.css";
 
 export default function Post({ postInfo }) {
@@ -12,6 +13,7 @@ export default function Post({ postInfo }) {
       <img src={url} alt={url} className={styles.postImage} />
       <hr className={styles.separator} />
       <PostFooter postInfo={postInfo} />
+      <Comments />
     </div>
   );
 }

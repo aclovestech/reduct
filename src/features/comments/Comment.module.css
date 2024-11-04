@@ -1,0 +1,36 @@
+.comment {
+    display: flex;
+    flex-direction: column;
+}
+
+.commentHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userInfo {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.userAvatar {
+    width: 30px;
+}
+
+.username {
+    font-weight: 500;
+    color: #007bff;
+    font-size: 14px;
+}
+
+.timePosted {
+    font-size: 10px;
+}
+
+.commentBody {
+    font-size: 12px;
+}
