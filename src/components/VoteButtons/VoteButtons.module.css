@@ -1,5 +1,13 @@
 .voteButtons {
-    padding: 10px;
+    padding: 15px;
     text-align: center;
     width: 50px;
+}
+
+.upvote {
+    color: #4dc326
+}
+
+.downvote {
+    color: #fe3030
 }

@@ -1,6 +1,10 @@
 .comment {
     display: flex;
     flex-direction: column;
+    background-color: #252525;
+    padding: 10px;
+    padding-top: 5px;
+    border-radius: 10px;
 }
 
 .commentHeader {
