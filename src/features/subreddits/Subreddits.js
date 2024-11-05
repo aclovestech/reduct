@@ -16,7 +16,9 @@ import styles from "./Subreddits.module.css";
 
 export default function Subreddits() {
   const subreddits = useSelector(selectSubreddits);
+  // eslint-disable-next-line
   const isLoading = useSelector(selectIsLoading);
+  // eslint-disable-next-line
   const error = useSelector(selectError);
   const lastFetched = useSelector(selectLastFetched);
   const selectedSubreddit = useSelector(selectSelectedSubreddit);
@@ -38,6 +40,7 @@ export default function Subreddits() {
     if (!selectedSubreddit) {
       dispatch(changeSelectedSubreddit(subreddits[0].data["display_name"]));
     }
+    // eslint-disable-next-line
   }, [dispatch, subreddits]);
 
   return (

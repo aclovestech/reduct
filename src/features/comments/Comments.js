@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Comment from "./Comment";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   selectComments,
   selectIsLoading,
@@ -11,7 +11,9 @@ import styles from "./Comments.module.css";
 
 export default function Comments({ postInfo }) {
   const comments = useSelector(selectComments);
+  // eslint-disable-next-line
   const isLoading = useSelector(selectIsLoading);
+  // eslint-disable-next-line
   const error = useSelector(selectError);
   const visibleComments = useSelector(selectVisibleComments);
 

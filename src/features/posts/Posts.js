@@ -12,7 +12,9 @@ import styles from "./Posts.module.css";
 
 export default function Posts() {
   const posts = useSelector(selectPosts);
+  // eslint-disable-next-line
   const isLoading = useSelector(selectIsLoading);
+  // eslint-disable-next-line
   const error = useSelector(selectError);
   const selectedSubreddit = useSelector(selectSelectedSubreddit);
   const dispatch = useDispatch();
