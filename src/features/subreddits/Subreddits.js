@@ -5,7 +5,6 @@ import {
   getTopSubreddits,
   selectSubreddits,
   selectIsLoading,
-  selectError,
   selectLastFetched,
 } from "./subredditsSlice";
 import {
@@ -16,10 +15,7 @@ import styles from "./Subreddits.module.css";
 
 export default function Subreddits() {
   const subreddits = useSelector(selectSubreddits);
-  // eslint-disable-next-line
   const isLoading = useSelector(selectIsLoading);
-  // eslint-disable-next-line
-  const error = useSelector(selectError);
   const lastFetched = useSelector(selectLastFetched);
   const selectedSubreddit = useSelector(selectSelectedSubreddit);
 
@@ -37,11 +33,11 @@ export default function Subreddits() {
       dispatch(getTopSubreddits());
     }
 
-    if (!selectedSubreddit) {
+    if (!selectedSubreddit && !isLoading) {
       dispatch(changeSelectedSubreddit(subreddits[0].data["display_name"]));
     }
     // eslint-disable-next-line
-  }, [dispatch, subreddits]);
+  }, [dispatch, subreddits, isLoading]);
 
   return (
     <div className={styles.subreddits}>

@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import {
   selectComments,
   selectIsLoading,
-  selectError,
   selectVisibleComments,
 } from "./commentsSlice";
 import styles from "./Comments.module.css";
@@ -13,8 +12,6 @@ export default function Comments({ postInfo }) {
   const comments = useSelector(selectComments);
   // eslint-disable-next-line
   const isLoading = useSelector(selectIsLoading);
-  // eslint-disable-next-line
-  const error = useSelector(selectError);
   const visibleComments = useSelector(selectVisibleComments);
 
   if (
