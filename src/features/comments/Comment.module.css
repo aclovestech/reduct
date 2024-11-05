@@ -5,6 +5,7 @@
     padding: 10px;
     padding-top: 5px;
     border-radius: 10px;
+    gap: 10px;
 }
 
 .commentHeader {
@@ -12,6 +13,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding-top: 5px;
 }
 
 .userInfo {
@@ -37,4 +39,5 @@
 
 .commentBody {
     font-size: 12px;
+    overflow-wrap: break-word;
 }

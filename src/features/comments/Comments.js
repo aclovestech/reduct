@@ -1,13 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Comment from "./Comment";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectComments,
+  selectIsLoading,
+  selectError,
+  selectVisibleComments,
+} from "./commentsSlice";
 import styles from "./Comments.module.css";
 
-export default function Comments() {
+export default function Comments({ postInfo }) {
+  const comments = useSelector(selectComments);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const visibleComments = useSelector(selectVisibleComments);
+
+  if (
+    !comments[postInfo.id] ||
+    !visibleComments.some((element) => element === postInfo.id)
+  ) {
+    return;
+  }
+
   return (
     <div className={styles.comments}>
-      <Comment />
-      <Comment />
-      <Comment />
+      {comments[postInfo.id].map((comment) => {
+        return (
+          <Comment
+            key={comment.data.id}
+            username={comment.data.author}
+            timePosted={comment.data.created}
+            commentBody={comment.data.body}
+          />
+        );
+      })}
     </div>
   );
 }

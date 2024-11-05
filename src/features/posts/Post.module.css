@@ -1,14 +1,13 @@
 .post {
-    flex: 2;
     padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow: auto;
 }
 
 .postTitle {
     font-size: large;
-    overflow-wrap: break-word;
 }
 
 .postImage {

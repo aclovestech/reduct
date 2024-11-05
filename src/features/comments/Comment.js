@@ -1,21 +1,20 @@
 import React from "react";
+import { formatTimePosted } from "../../utils/formatter";
 import styles from "./Comment.module.css";
 
-export default function Comment() {
+export default function Comment({ username, timePosted, commentBody }) {
+  const formattedTimePosted = formatTimePosted(timePosted);
+
   return (
     <div className={styles.comment}>
       <div className={styles.commentHeader}>
         <div className={styles.userInfo}>
-          <img
-            className={styles.userAvatar}
-            src="https://api.dicebear.com/9.x/adventurer/svg?seed=Brian"
-            alt=""
-          />
-          <span className={styles.username}>username</span>
+          <i className="fa-brands fa-reddit-alien"></i>
+          <span className={styles.username}>{username}</span>
         </div>
-        <span className={styles.timePosted}>2 days ago</span>
+        <span className={styles.timePosted}>{formattedTimePosted}</span>
       </div>
-      <p className={styles.commentBody}>keklol this is my comment haha</p>
+      <p className={styles.commentBody}>{commentBody}</p>
     </div>
   );
 }
