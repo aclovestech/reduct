@@ -1,7 +1,17 @@
 .voteButtons {
-    padding: 15px;
+    padding-top: 15px;
+    padding-left: 10px;
     text-align: center;
     width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.voteButtons>* {
+    font-size: 20px;
 }
 
 .upvote {
@@ -10,4 +20,8 @@
 
 .downvote {
     color: #fe3030
+}
+
+.neutral {
+    color: #e0e0e0;
 }
