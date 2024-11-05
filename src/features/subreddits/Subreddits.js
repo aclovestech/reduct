@@ -33,7 +33,7 @@ export default function Subreddits() {
       dispatch(getTopSubreddits());
     }
 
-    if (!selectedSubreddit && !isLoading) {
+    if (!selectedSubreddit && !isLoading && subreddits.length > 0) {
       dispatch(changeSelectedSubreddit(subreddits[0].data["display_name"]));
     }
     // eslint-disable-next-line
