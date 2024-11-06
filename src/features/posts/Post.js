@@ -13,6 +13,7 @@ export default function Post({ postInfo }) {
       <img src={url} alt={url} className={styles.postImage} />
       <div className={styles.separator}></div>
       <PostFooter postInfo={postInfo} />
+      <div className={styles.separator}></div>
       <Comments postInfo={postInfo} />
     </div>
   );
