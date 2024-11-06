@@ -29,7 +29,7 @@
 
 .username {
     font-weight: 500;
-    color: #007bff;
+    color: #ffffff;
     font-size: 14px;
 }
 
@@ -40,4 +40,10 @@
 .commentBody {
     font-size: 12px;
     overflow-wrap: break-word;
+}
+
+@media screen and (min-width: 768px) {
+    .commentBody {
+        font-size: medium;
+    }
 }

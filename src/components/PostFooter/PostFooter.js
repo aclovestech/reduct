@@ -37,12 +37,16 @@ export default function PostFooter({ postInfo }) {
 
   return (
     <div id="post-footer-container" className={styles.postFooter}>
-      <span className={styles.postedBy}>
-        Posted by <span className={styles.username}>{author}</span>
-      </span>
-      <hr className={styles.separator} />
-      <span className={styles.timePosted}>{formattedTime}</span>
-      <hr className={styles.separator} />
+      <div className={styles.postedBy}>
+        <span>
+          Posted by <span className={styles.username}>{author}</span>
+        </span>
+      </div>
+      <div className={styles.separator}></div>
+      <div className={styles.timePosted}>
+        <span>{formattedTime}</span>
+      </div>
+      <div className={styles.separator}></div>
       <div className={styles.comments} onClick={handleOnCommentsClick}>
         <i className="fa-regular fa-message"></i>
         <span className={styles.commentsCount}>{formattedCommentCount}</span>

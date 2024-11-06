@@ -9,10 +9,11 @@ export default function Post({ postInfo }) {
   return (
     <div className={styles.post}>
       <h2 className={styles.postTitle}>{title}</h2>
-      <hr className={styles.separator} />
+      <div className={styles.separator}></div>
       <img src={url} alt={url} className={styles.postImage} />
-      <hr className={styles.separator} />
+      <div className={styles.separator}></div>
       <PostFooter postInfo={postInfo} />
+      <div className={styles.separator}></div>
       <Comments postInfo={postInfo} />
     </div>
   );
