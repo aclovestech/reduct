@@ -12,10 +12,28 @@
 
 .postImage {
     border-radius: 10px;
+    max-width: 80%;
+    margin: 0 auto;
 }
 
 .separator {
     height: 1px;
     background-color: #777777;
     margin: 5px 0;
+}
+
+@media screen and (min-width: 768px) {
+    .postTitle {
+        font-size: x-large;
+    }
+
+    .postImage {
+        max-width: 60%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .postImage {
+        max-width: 50%;
+    }
 }

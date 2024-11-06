@@ -64,5 +64,17 @@ main {
     width: 100%;
     padding: 0 10px;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
+}
+
+@media screen and (min-width: 768px) {
+    main {
+        padding: 0 20px;
+        gap: 20px;
+        flex-flow: row nowrap;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    main {}
 }
