@@ -1,0 +1,16 @@
+.noPostsAvailable {
+    background-color: #1E1E1E;
+    border-radius: 10px;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+    .noPostsAvailable {
+        width: 80%;
+        margin: 0 auto;
+    }
+}

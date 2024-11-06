@@ -37,6 +37,9 @@ export const postsSlice = createSlice({
     changeSelectedSubreddit: (state, action) => {
       state.selectedSubreddit = action.payload;
     },
+    resetFilteredPosts: (state) => {
+      state.filteredPosts = state.posts;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -66,5 +69,6 @@ export const selectError = (state) => state.posts.error;
 export const selectSelectedSubreddit = (state) => state.posts.selectedSubreddit;
 export const selectFilteredPosts = (state) => state.posts.filteredPosts;
 
-export const { searchPosts, changeSelectedSubreddit } = postsSlice.actions;
+export const { searchPosts, changeSelectedSubreddit, resetFilteredPosts } =
+  postsSlice.actions;
 export default postsSlice.reducer;

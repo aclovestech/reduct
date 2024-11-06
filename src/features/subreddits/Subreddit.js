@@ -1,13 +1,29 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { changeSelectedSubreddit } from "../posts/postsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectPosts,
+  selectFilteredPosts,
+  selectSelectedSubreddit,
+  changeSelectedSubreddit,
+  resetFilteredPosts,
+} from "../posts/postsSlice";
 import styles from "./Subreddit.module.css";
 
 export default function Subreddit({ avatar, subredditName }) {
   const dispatch = useDispatch();
+  const posts = useSelector(selectPosts);
+  const filteredPosts = useSelector(selectFilteredPosts);
+  const selectedSubreddit = useSelector(selectSelectedSubreddit);
 
   const handleSubredditSelection = () => {
     dispatch(changeSelectedSubreddit(subredditName));
+
+    const arePostsIdentical =
+      JSON.stringify(posts) === JSON.stringify(filteredPosts);
+
+    if (selectedSubreddit === subredditName && !arePostsIdentical) {
+      dispatch(resetFilteredPosts());
+    }
   };
 
   return (

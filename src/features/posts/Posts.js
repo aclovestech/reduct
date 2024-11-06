@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import Card from "../../components/Card/Card";
+import NoPostsAvailable from "../../components/NoPostsAvailable/NoPostsAvailable";
 import {
   selectFilteredPosts,
   selectIsLoading,
-  selectError,
   selectSelectedSubreddit,
   getPostsBySubreddits,
 } from "./postsSlice";
@@ -11,11 +11,9 @@ import { useSelector, useDispatch } from "react-redux";
 import styles from "./Posts.module.css";
 
 export default function Posts() {
-  const posts = useSelector(selectFilteredPosts);
+  const filteredPosts = useSelector(selectFilteredPosts);
   // eslint-disable-next-line
   const isLoading = useSelector(selectIsLoading);
-  // eslint-disable-next-line
-  const error = useSelector(selectError);
   const selectedSubreddit = useSelector(selectSelectedSubreddit);
   const dispatch = useDispatch();
 
@@ -27,9 +25,13 @@ export default function Posts() {
 
   return (
     <div id="posts-container" className={styles.posts}>
-      {posts.map((post) => {
-        return <Card key={post.data.id} postInfo={post.data} />;
-      })}
+      {filteredPosts.length > 0 ? (
+        filteredPosts.map((post) => {
+          return <Card key={post.data.id} postInfo={post.data} />;
+        })
+      ) : (
+        <NoPostsAvailable />
+      )}
     </div>
   );
 }
