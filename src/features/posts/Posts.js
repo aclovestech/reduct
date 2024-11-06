@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Card from "../../components/Card/Card";
 import {
-  selectPosts,
+  selectFilteredPosts,
   selectIsLoading,
   selectError,
   selectSelectedSubreddit,
@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import styles from "./Posts.module.css";
 
 export default function Posts() {
-  const posts = useSelector(selectPosts);
+  const posts = useSelector(selectFilteredPosts);
   // eslint-disable-next-line
   const isLoading = useSelector(selectIsLoading);
   // eslint-disable-next-line

@@ -6,6 +6,7 @@ const initialState = {
   isLoading: false,
   error: null,
   selectedSubreddit: null,
+  filteredPosts: [],
 };
 
 export const getPostsBySubreddits = createAsyncThunk(
@@ -21,9 +22,17 @@ export const postsSlice = createSlice({
   initialState,
   reducers: {
     searchPosts: (state, action) => {
-      state.posts = state.posts.filter((post) =>
-        post.title.toLowerCase().includes(action.payload.toLowerCase())
-      );
+      const searchQuery = action.payload;
+      if (searchQuery) {
+        const filteredPost = state.posts.filter((post) =>
+          post.data.title.toLowerCase().includes(searchQuery)
+        );
+        filteredPost
+          ? (state.filteredPosts = filteredPost)
+          : (state.filteredPosts = []);
+      } else {
+        state.filteredPosts = state.posts;
+      }
     },
     changeSelectedSubreddit: (state, action) => {
       state.selectedSubreddit = action.payload;
@@ -46,6 +55,7 @@ export const postsSlice = createSlice({
         state.posts = posts.filter(
           (post) => post.data["post_hint"] === "image"
         );
+        state.filteredPosts = state.posts;
       });
   },
 });
@@ -54,6 +64,7 @@ export const selectPosts = (state) => state.posts.posts;
 export const selectIsLoading = (state) => state.posts.isLoading;
 export const selectError = (state) => state.posts.error;
 export const selectSelectedSubreddit = (state) => state.posts.selectedSubreddit;
+export const selectFilteredPosts = (state) => state.posts.filteredPosts;
 
 export const { searchPosts, changeSelectedSubreddit } = postsSlice.actions;
 export default postsSlice.reducer;
