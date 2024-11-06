@@ -1,27 +1,26 @@
 .postFooter {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    max-width: 100%;
+    text-align: center;
 }
 
-.postFooter>span {
-    font-size: xx-small;
+.postFooter * {
+    font-size: x-small;
 }
 
 .postedBy {
-    flex: 1;
+    max-width: 95px;
 }
 
 .username {
-    color: #007bff;
+    color: #61ADFF;
     font-weight: 500;
 }
 
 .timePosted {
-    text-align: center;
-    width: 75px;
+    min-width: 60px;
 }
 
 .comments {
@@ -29,15 +28,11 @@
     gap: 5px;
     align-items: center;
     justify-content: center;
-    width: 50px;
-}
-
-.comments>* {
-    font-size: x-small;
+    min-width: 30px;
 }
 
 .separator {
-    border: none;
-    height: 20px;
-    border-left: 1px solid rgba(255, 255, 255, 0.2)
+    width: 2px;
+    background-color: #777777;
+    height: 30px;
 }
