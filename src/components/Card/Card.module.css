@@ -3,12 +3,12 @@
     align-items: start;
     background-color: #1E1E1E;
     border-radius: 10px;
-    max-width: 100%;
+    width: 100%;
 }
 
 @media screen and (min-width: 1024px) {
     .card {
-        max-width: 80%;
+        width: 80%;
         margin: 0 auto;
     }
 }

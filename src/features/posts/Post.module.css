@@ -4,6 +4,7 @@
     flex-direction: column;
     gap: 5px;
     overflow: auto;
+    width: 100%;
 }
 
 .postTitle {
