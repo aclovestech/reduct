@@ -6,6 +6,7 @@ import {
   selectIsLoading,
   selectVisibleComments,
 } from "./commentsSlice";
+import NoCommentsAvailable from "../../components/NoCommentsAvailable/NoCommentsAvailable";
 import styles from "./Comments.module.css";
 
 export default function Comments({ postInfo }) {
@@ -14,8 +15,10 @@ export default function Comments({ postInfo }) {
   const isLoading = useSelector(selectIsLoading);
   const visibleComments = useSelector(selectVisibleComments);
 
+  const commentsWithinPost = comments[postInfo.id];
+
   if (
-    !comments[postInfo.id] ||
+    !commentsWithinPost ||
     !visibleComments.some((element) => element === postInfo.id)
   ) {
     return;
@@ -23,16 +26,20 @@ export default function Comments({ postInfo }) {
 
   return (
     <div className={styles.comments}>
-      {comments[postInfo.id].map((comment) => {
-        return (
-          <Comment
-            key={comment.data.id}
-            username={comment.data.author}
-            timePosted={comment.data.created}
-            commentBody={comment.data.body}
-          />
-        );
-      })}
+      {commentsWithinPost.length > 0 ? (
+        commentsWithinPost.map((comment) => {
+          return (
+            <Comment
+              key={comment.data.id}
+              username={comment.data.author}
+              timePosted={comment.data.created}
+              commentBody={comment.data.body}
+            />
+          );
+        })
+      ) : (
+        <NoCommentsAvailable />
+      )}
     </div>
   );
 }

@@ -5,6 +5,9 @@
     justify-content: flex-start;
     align-items: center;
     height: 50px;
+    background-color: #252525;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .subreddit>img {
